@@ -1,0 +1,24 @@
+1. Create a pie chart presenting the male/female proportion
+
+
+import matplotlib.pyplot as plt
+import pandas as pd
+titanic =pd.read_csv("https://raw.githubusercontent.com/Geoyi/Cleaning-Titanic-Data/master/titanic_original.csv")
+%matplotlib inline
+plt.axis("equal")
+plt.pie(titanic['sex'].value_counts(),labels=["Male","Female"],radius=1.5,autopct="%.2f%%",startangle=180)
+plt.show()
+
+
+
+
+
+2. Create a scatterplot with the Fare paid and the Age, differ the plot color by gender
+
+
+import matplotlib.pyplot as plt
+%matplotlib inline
+import pandas as pd
+scatterCol = {'male' : 'blue', 'female' : 'red'}
+titanic=pd.read_csv("https://raw.githubusercontent.com/Geoyi/Cleaning-Titanic-Data/master/titanic_original.csv")
+plt.scatter(titanic['fare'],titanic['age'],c=pd.factorize(titanic['sex'])[0] )
